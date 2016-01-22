@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 2.6)
+# This project is designed to be built outside the Insight source tree.
+PROJECT(MLLFSEG)
+
+SET(CMAKE_BUILD_TYPE=debug)
+# Find ITK.
+FIND_PACKAGE(ITK)
+IF(ITK_FOUND)
+  INCLUDE(${ITK_USE_FILE})
+ELSE(ITK_FOUND)
+  MESSAGE(FATAL_ERROR
+          "Cannot build without ITK.  Please set ITK_DIR.")
+ENDIF(ITK_FOUND)
+
+ADD_EXECUTABLE(mllf ../src/LabelFusion.cxx)
+TARGET_LINK_LIBRARIES(mllf ${ITK_LIBRARIES})

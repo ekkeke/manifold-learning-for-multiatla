@@ -1,0 +1,13 @@
+usage:
+  mllf dim [options] output_image
+  required options:
+  dim                             Image dimension (2 or 3)           
+  -g atlas1.nii ....atlasN.nii    Warped atlas images
+  -l label1.nii ....labelN.nii    Warped atlas segmentation
+  -tg target.nii                  Target image
+  -m [parameters]                 Isomap parameters K,dims
+other options:
+  -rp radius                      Patch radius (AxBxC)
+  -rs radius                      Local search radius (AxBxC)
+  -p  filenamePattern             Save the posterior maps,e.g. -p posterior%04d.nii.gz
+  
